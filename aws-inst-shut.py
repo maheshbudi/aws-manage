@@ -28,7 +28,6 @@ for iter in ec2_details():
 ## Stop all instances:
 # Do a dryrun first to verify permissions
 for inst in ec2_inst_details:
-    print("%s - 'running'" % inst['ec2_inst_status'])
     if inst['ec2_inst_status'] in 'running':
         try:
             ec2.stop_instances(InstanceIds=[inst['ec2_inst_id']], DryRun=True)
