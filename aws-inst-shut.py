@@ -2,10 +2,15 @@
 #import sys
 import boto3
 from botocore.exceptions import ClientError
+#import os
+
 
 ec2 = boto3.client('ec2')
 di=ec2.describe_instances()['Reservations']
 ec2_inst_details = []
+
+#os.environ['http_proxy']='http://webproxy.int.westgroup.com:80'
+#os.environ['https_proxy']='http://webproxy.int.westgroup.com:80'
 
 def ec2_details():    
     for inst in range(len(di)):
